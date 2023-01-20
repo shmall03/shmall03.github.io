@@ -2,10 +2,10 @@ let menu, button1, button2, montFont, montFontExtraLight, montFontAlt, img, titl
 let bgBalls = [], backgroundBallCount = 40, bgBallsVisual = true;
 
 function preload() {
-    montFont = loadFont('fonts/Montserrat-Light.otf');
-    montFontExtraLight = loadFont('fonts/Montserrat-ExtraLight.otf');
-    montFontAlt = loadFont('fonts/MontserratAlternates-Medium.otf');
-    img = loadImage('images/Ben Pony.jpg');
+    montFont = loadFont('Montserrat-Light.otf');
+    montFontExtraLight = loadFont('Montserrat-ExtraLight.otf');
+    montFontAlt = loadFont('MontserratAlternates-Medium.otf');
+    img = loadImage('Ben Pony.jpg');
 }
 
 function setup() {
