@@ -1,5 +1,5 @@
 let menu, button1, button2, montFont, montFontExtraLight, montFontAlt, img, titleSize, page;
-let bgBalls = [], backgroundBallCount = 40, bgBallsVisual = true;
+let bgBalls = [], backgroundBallCount = 40, bgBallsVisual = false;
 
 function preload() {
     montFont = loadFont('Montserrat-Light.otf');
