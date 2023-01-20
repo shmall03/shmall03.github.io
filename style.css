@@ -1,8 +1,41 @@
 html, body {
-  margin: 0;
-  padding: 0;
   background-color: #282828;
 }
 canvas {
   display: block;
+}
+
+h1 {
+  color: #dcdcdc;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 70px;
+}
+
+p {
+  color: #dcdcdc;
+  font-family: "Montserrat", sans-serif;
+  font-size: larger;
+}
+
+.container {
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  /* grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px; */
+}
+
+img {
+  max-width: 25%;
+  max-height: 25%;
+  float: left;
+}
+
+.sideBySideText {
+  font-size: x-large;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 20px;
+  float: left;
 }
