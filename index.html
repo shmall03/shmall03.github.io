@@ -1,34 +1,67 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
-    <title>Ben Smith | Home</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" type="image/png" href="/images/Ben Pony.jpg">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <title>Ben Smith</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap">
   </head>
   <body>
-    <header>
-      <h1>Ben Smith</h1>
+    <header id="home">
+      <div class="header-container">
+        <h1>Ben Smith &nbsp&nbsp-&nbsp&nbsp Music Portfolio</h1>
+        <nav>
+          <ul>
+            <!-- <li><a href="#home">Home</a></li> -->
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#music">Music Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
-    <div id="bodyContainer">
-      <div id="bodyImage">
-        <img src="/images/Ben Pony.jpg" alt="Ben Smith riding on a fairground ride." width="600" height="600">
-      </div>
-      <div id="bodyParagraphText" style="text-align: center; float: left;">
-        <p>This is my personal website. Here, you can access some musical work of mine, as well as my contact details, etc. Please get in touch if you would like to discuss my work at any depth, I'll be happy to talk to you about it.</p>
-      </div>
-    </div>
-    <div id="bodyContainer">
-      <div id="bodyHeaderText">
-        <p style="font-size: 64px; text-align: center;">Contact<br>Info</p>
-      </div>
-      <div id="bodyParagraphText" style="transform: translate(80%, 70px);">
-        <p>Email:&nbsp;&nbsp;&nbsp;bs1446@york.ac.uk<br>Phone: +44 7392 063583</p>
-      </div>
-    </div>
+    <main>
+      <section id="about">
+        <div class="about-me-container">
+          <div>
+            <h2>About Me</h2>
+            <p>I am Ben Smith - a composer, producer and BA Music and Sound Recording student at the University of York. I also perform as a snare drummer in the <a href="https://www.clcgb.org.uk/component/tags/tag/national-band" target="_blank">CLCGB National Band</a>.<br>I have experience managing PA systems at sporting events and live music events, recording, mixing and producing pieces of music, as well as writing music myself.</p>
+          </div>
+          <img src="content/Ben Pony.jpg" alt="Ben Smith">
+        </div>
+        <p>This site allows you to explore some of my work, including my own compositions, as well as recordings, mixing and mastering that I have done - have a look at the <a href="#music">Music Portfolio</a> section below.</p>
+      </section>
+      <section id="music">
+        <h2>Music Portfolio</h2>
+        <ul>
+          <div id="compound" class="work-container">
+            <li><a href="https://drive.google.com/drive/folders/1pue1blXOsEc9QsyAdm_1Gso8oljtMLuo?usp=share_link" target="_blank"><strong>Compound</strong></a></li>
+            <p>For piano, circa 3 minutes. This piece highlights the potential for complexity in human emotion.</p>
+          </div>
+          <div id="salix" class="work-container">
+            <li><a href="https://drive.google.com/drive/folders/1TBMJ-jYjY6IHRgjA1Sgg3JW6RSRlB2JQ?usp=share_link" target="_blank"><strong>Salix</strong></a></li>
+            <p>For string quartet (2 violins, viola and cello), circa 6 minutes 45 seconds. This piece encapsulates the emotional journey that is taken after losing a loved one.</p>
+          </div>
+        </ul>
+      </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>Please feel free to get in touch with me through my University of York email address below.<br><br><a href="mailto:bs1446@york.ac.uk">bs1446@york.ac.uk</a></p>
+        <!-- <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message"></textarea>
+          <button type="submit">Send Message</button>
+        </form> -->
+      </section>
+    </main>
+    <footer>
+      <p>Copyright &copy; Ben Smith, 2023</p>
+    </footer>
   </body>
-  <!-- <script src="menuButton.js"></script> -->
-  <!-- <script src="classes.js"></script> -->
 </html>
