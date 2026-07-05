@@ -70,7 +70,7 @@
 
 | Kicker | Conversions | Pen Goals |
 |---|---|---|
-| Sinfield | 6/6 (100%) | - |
+| Sinfield | 6/9 (67%) | - |
 
 ### Kicking Analysis
 
