@@ -28,7 +28,7 @@ fi
 IFS=$'\n' sorted=($(sort -t'|' -k1r <<< "${entries[*]}"))
 unset IFS
 
-# Generate the replacement content into a temp file
+# Build table content
 tmp=$(mktemp)
 cat > "$tmp" << 'EOF'
 ## Match Reports
@@ -42,19 +42,15 @@ for entry in "${sorted[@]}"; do
         "$date" "$team_a" "$team_b" "$score_a" "$score_b" "$base" >> "$tmp"
 done
 
-# Replace content between <!-- SECTION:reports --> markers
+# Replace from "## Match Reports" line up to (but not including) "<!-- SECTION:articles -->"
 awk -v tmpfile="$tmp" '
 BEGIN { in_section = 0 }
-/^<!-- SECTION:reports -->$/ {
-    print
-    if (in_section == 0) {
-        in_section = 1
-        while ((getline line < tmpfile) > 0) print line
-        close(tmpfile)
-    } else {
-        in_section = 0
-    }
-    next
+/^## Match Reports$/ { in_section = 1 }
+in_section && /^<!-- SECTION:articles -->$/ {
+    in_section = 0
+    while ((getline line < tmpfile) > 0) print line
+    close(tmpfile)
+    print ""
 }
 in_section { next }
 { print }
