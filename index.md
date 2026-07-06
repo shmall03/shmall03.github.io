@@ -24,7 +24,6 @@ Welcome to the match reports hub. Here you'll find detailed statistics, analysis
 | 12 | | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | 13 | | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | 14 | | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-<!-- SECTION:league_table -->
 
 ## Match Reports
 
@@ -36,4 +35,3 @@ Welcome to the match reports hub. Here you'll find detailed statistics, analysis
 ## Articles
 
 *(Space for extra write-ups and articles)*
-<!-- SECTION:articles -->
