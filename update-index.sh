@@ -33,7 +33,7 @@ IFS=$'\n' sorted=($(sort -t'|' -k1r <<< "${entries[*]}"))
 unset IFS
 
 # Build table rows
-table_rows="| Date | Teams | Score | Report |\n|------|-------|-------|--------|\n"
+table_rows="## Match Reports\n\n| Date | Teams | Score | Report |\n|------|-------|-------|--------|\n"
 for entry in "${sorted[@]}"; do
     IFS='|' read -r date team_a team_b score_a score_b base <<< "$entry"
     table_rows+="| $date | $team_a vs $team_b | $score_a – $score_b | [View](reports/$base) |\n"

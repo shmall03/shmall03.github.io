@@ -27,6 +27,8 @@ Welcome to the match reports hub. Here you'll find detailed statistics, analysis
 <!-- SECTION:league_table -->
 
 <!-- SECTION:reports -->
+## Match Reports
+
 | Date | Teams | Score | Report |
 |------|-------|-------|--------|
 | 2026-07-05 | Wakefield Trinity vs Castleford Tigers | 48 – 6 | [View](reports/match_Wakefield_Trinity_v_Castleford_Tigers_20260705_123000.md) |
