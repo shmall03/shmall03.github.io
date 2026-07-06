@@ -10,10 +10,7 @@ for file in "$REPORTS_DIR"/*.md; do
     [ -f "$file" ] || continue
     base=$(basename "$file")
 
-    # Parse: "# Match Report: TeamA vs TeamB"
     title=$(sed -n '1s/^# Match Report: \(.*\) vs \(.*\)/\1|\2/p' "$file")
-
-    # Parse: "**Date:** 2026-07-05 ... **Final Score:** 48 – 6"
     date_line=$(sed -n '3s/^\*\*Date:\*\* \([0-9-]*\).*\*\*Final Score:\*\* \([0-9]*\) – \([0-9]*\)/\1|\2|\3/p' "$file")
 
     IFS='|' read -r team_a team_b <<< "${title:-}" 2>/dev/null || continue
@@ -28,32 +25,40 @@ if [ ${#entries[@]} -eq 0 ]; then
     exit 0
 fi
 
-# Sort by date descending (newest first)
 IFS=$'\n' sorted=($(sort -t'|' -k1r <<< "${entries[*]}"))
 unset IFS
 
-# Build table rows
-table_rows="## Match Reports\n\n| Date | Teams | Score | Report |\n|------|-------|-------|--------|\n"
+# Generate the replacement content into a temp file
+tmp=$(mktemp)
+cat > "$tmp" << 'EOF'
+## Match Reports
+
+| Date | Teams | Score | Report |
+|------|-------|-------|--------|
+EOF
 for entry in "${sorted[@]}"; do
     IFS='|' read -r date team_a team_b score_a score_b base <<< "$entry"
-    table_rows+="| $date | $team_a vs $team_b | $score_a – $score_b | [View](reports/$base) |\n"
+    printf '| %s | %s vs %s | %s – %s | [View](reports/%s) |\n' \
+        "$date" "$team_a" "$team_b" "$score_a" "$score_b" "$base" >> "$tmp"
 done
-table_rows="${table_rows%\\n}"
 
 # Replace content between <!-- SECTION:reports --> markers
-awk -v replacement="$table_rows" '
-/^<!-- SECTION:reports -->$/ && !in_section {
+awk -v tmpfile="$tmp" '
+BEGIN { in_section = 0 }
+/^<!-- SECTION:reports -->$/ {
     print
-    in_section = 1
-    next
-}
-in_section && /^<!-- SECTION:reports -->$/ {
-    printf "%s\n%s\n", replacement, $0
-    in_section = 0
+    if (in_section == 0) {
+        in_section = 1
+        while ((getline line < tmpfile) > 0) print line
+        close(tmpfile)
+    } else {
+        in_section = 0
+    }
     next
 }
 in_section { next }
 { print }
 ' "$INDEX_FILE" > "${INDEX_FILE}.tmp" && mv "${INDEX_FILE}.tmp" "$INDEX_FILE"
 
+rm -f "$tmp"
 echo "Updated reports table in $INDEX_FILE"
